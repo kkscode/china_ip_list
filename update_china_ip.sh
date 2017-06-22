@@ -23,7 +23,7 @@ sort  -t "." -k1n,1 -k2n,2 -k3n,3 -k4n,4 temp_2_china_ip_list > china_ip_list
 rm -rf apnic ipip temp_apnic_china_ip temp_china_ip_list temp_2_china_ip_list
 
 # 提交
-CurrentDate=`date +%Y-%m-%d%H%M%S`
+CurrentDate=`date +%Y%m%d%H%M%S`
 git add .
 git commit -m $CurrentDate
 git push
