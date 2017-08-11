@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd /root/china_ip_list
-cd Pcap_DNSProxy
+cd /root/china_ip_list/Pcap_DNSProxy/
 
 CurrentDate=`date +%Y-%m-%d`
 echo -e "[Local Routing]\n## China mainland routing blocks\n## Sources: https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest" > Pcap_DNSProxy_Routing.txt
@@ -11,7 +10,7 @@ echo -e "\n" >> Pcap_DNSProxy_Routing.txt
 
 # IPv4
 echo "## IPv4" >> Pcap_DNSProxy_Routing.txt
-cat china_ip_list Pcap_DNSProxy_Routing.txt >> Pcap_DNSProxy_Routing.txt
+cat /root/china_ip_list/china_ip_list Pcap_DNSProxy_Routing.txt >> Pcap_DNSProxy_Routing.txt
 echo "\n" >> Pcap_DNSProxy_Routing.txt
 
 # IPv6
