@@ -2,7 +2,7 @@
 
 cd /root/china_ip_list/Script/
 
-pthon ssr_chn_ip.py
+python ssr_chn_ip.py
 
 cd /root/china_ip_list/
 
