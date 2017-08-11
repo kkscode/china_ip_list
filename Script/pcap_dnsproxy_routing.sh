@@ -10,7 +10,7 @@ echo -e "\n" >> Pcap_DNSProxy_Routing.txt
 
 # IPv4
 echo "## IPv4" >> Pcap_DNSProxy_Routing.txt
-cat /root/china_ip_list/china_ip_list Pcap_DNSProxy_Routing.txt >> Pcap_DNSProxy_Routing.txt
+cat /root/china_ip_list/china_ip_list >> Pcap_DNSProxy_Routing.txt
 echo "\n" >> Pcap_DNSProxy_Routing.txt
 
 # IPv6
