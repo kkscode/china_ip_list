@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd china_ip_list
+cd /root/china_ip_list
 cd Pcap_DNSProxy
 
 CurrentDate=`date +%Y-%m-%d`

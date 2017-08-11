@@ -2,7 +2,7 @@
 
 date "+%Y-%m-%d %H:%M:%S"
 
-cd china_ip_list
+cd /root/china_ip_list
 
 wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest
 wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
