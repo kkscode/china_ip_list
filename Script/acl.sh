@@ -3,8 +3,7 @@
 cd /root/china_ip_list/ACL/
 
 CurrentDate=`date +%Y-%m-%d`
-echo "# China IP" > china_ip_for_acl_rules.txt
-echo -n "# Last update: " >> china_ip_for_acl_rules.txt
+echo -n "# Last update: " > china_ip_for_acl_rules.txt
 echo $CurrentDate >> china_ip_for_acl_rules.txt
 echo -e "[proxy_all]\n" >> china_ip_for_acl_rules.txt
 echo "[bypass_list]" >> china_ip_for_acl_rules.txt
