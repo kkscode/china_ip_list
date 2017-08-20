@@ -15,4 +15,4 @@ rm -rf china_ip_for_surge_rules_temp.txt
 
 mv china_ip_for_surge_rules.txt Rules.conf
 
-/root/china_ip_list/Script/ssr.sh
+/root/china_ip_list/Script/acl.sh
