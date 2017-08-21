@@ -18,11 +18,13 @@ echo "169.254.0.0/16" >> china_ip_for_acl_rules.txt
 echo "172.16.0.0/12" >> china_ip_for_acl_rules.txt
 echo "192.0.0.0/24" >> china_ip_for_acl_rules.txt
 echo "192.0.2.0/24" >> china_ip_for_acl_rules.txt
+echo "192.88.99.0/24" >> china_ip_for_acl_rules.txt
 echo "192.168.0.0/16" >> china_ip_for_acl_rules.txt
 echo "198.18.0.0/15" >> china_ip_for_acl_rules.txt
 echo "198.51.100.0/24" >> china_ip_for_acl_rules.txt
 echo "203.0.113.0/24" >> china_ip_for_acl_rules.txt
-echo "255.255.255.255/32" >> china_ip_for_acl_rules.txt
+echo "224.0.0.0/4" >> china_ip_for_acl_rules.txt
+echo "240.0.0.0/4" >> china_ip_for_acl_rules.txt
 echo "" >> china_ip_for_acl_rules.txt
 echo "# China IP" >> china_ip_for_acl_rules.txt
 cat /root/china_ip_list/china_ip_list >> china_ip_for_acl_rules.txt
