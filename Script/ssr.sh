@@ -3,6 +3,7 @@
 cd /root/china_ip_list/Script/
 
 python ssr_chn_ip.py
+python proxifier_chn_ip.py
 
 cd /root/china_ip_list/
 
