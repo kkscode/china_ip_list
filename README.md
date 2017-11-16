@@ -7,4 +7,4 @@
 每小时更新一次
 
 # LICENSE
-GPLv
+GPLv3
