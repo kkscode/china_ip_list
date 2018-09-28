@@ -34,20 +34,20 @@ handelChinaIPv4List() {
 	# 排序
 	sort -t "." -k1n,1 -k2n,2 -k3n,3 -k4n,4 apnic_and_ipip_2 >china_ipv4_list
 
-	copy china_ipv4_list $ROOT_PATH
+	cp china_ipv4_list $ROOT_PATH
 }
 
 handelChinaIPv6List() {
 	cat apnic | grep ipv6 | grep CN | awk -F\| '{printf("%s/%d\n", $4, $5)}' >china_ipv6_list
 
-	copy china_ipv6_list $ROOT_PATH
+	cp china_ipv6_list $ROOT_PATH
 }
 
 handelChinaIPv4IPv6List() {
 	cat china_ipv4_list >china_ipv4_ipv6_list
 	cat china_ipv6_list >>china_ipv4_ipv6_list
 
-	copy china_ipv4_ipv6_list $ROOT_PATH
+	cp china_ipv4_ipv6_list $ROOT_PATH
 }
 
 handelPcapDNSProxyRules() {
