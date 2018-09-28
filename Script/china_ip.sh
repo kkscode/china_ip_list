@@ -6,6 +6,7 @@ SURGE_PATH="/root/china_ip_list/Surge/"
 SSR_PATH="/root/china_ip_list/SSR/"
 ACL_PATH="/root/china_ip_list/ACL/"
 PCAP_DNSPROXY_PATH="/root/china_ip_list/Pcap_DNSProxy/"
+SCRIPT_PATH="/root/china_ip_list/Script"
 
 CurrentDate=$(date +%Y-%m-%d)
 
@@ -119,6 +120,7 @@ handelACLRules() {
 }
 
 handelSSRRules() {
+	cd $SCRIPT_PATH
 	python ssr_chn_ip.py
 }
 
