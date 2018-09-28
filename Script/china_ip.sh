@@ -130,9 +130,9 @@ cleanTempFile() {
 }
 
 commit() {
-	git add .
+	git add --all .
 	git commit -m "update"
-	git push
+	git push origin master
 }
 
 downloadOriginIPList
