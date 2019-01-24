@@ -19,7 +19,7 @@ downloadOriginIPList() {
 }
 
 handelChinaIPv4List() {
-	echo -e "\n" >>ipip
+	echo -e "" >>ipip
 	mv ipip china_ipv4_list
 	cp china_ipv4_list $ROOT_PATH
 }
@@ -41,7 +41,7 @@ handelPcapDNSProxyRules() {
 	echo -e "[Local Routing]\n## China mainland routing blocks\n## Sources: https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest" >Pcap_DNSProxy_Routing.txt
 	echo -n "## Last update: " >>Pcap_DNSProxy_Routing.txt
 	echo $CurrentDate >>Pcap_DNSProxy_Routing.txt
-	echo -e "\n" >>Pcap_DNSProxy_Routing.txt
+	echo "\n" >>Pcap_DNSProxy_Routing.txt
 
 	# IPv4
 	echo "## IPv4" >>Pcap_DNSProxy_Routing.txt
