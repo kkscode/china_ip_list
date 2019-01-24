@@ -46,7 +46,7 @@ handelPcapDNSProxyRules() {
 	# IPv4
 	echo "## IPv4" >>Pcap_DNSProxy_Routing.txt
 	cat china_ipv4_list >>Pcap_DNSProxy_Routing.txt
-	echo "\n" >>Pcap_DNSProxy_Routing.txt
+	echo -e "\n" >>Pcap_DNSProxy_Routing.txt
 
 	# IPv6
 	echo "## IPv6" >>Pcap_DNSProxy_Routing.txt
