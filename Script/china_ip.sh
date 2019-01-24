@@ -15,10 +15,12 @@ downloadOriginIPList() {
 	cd $TEMP_FILE_PATH
 
 	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest
-	wget -O china_ipv4_list https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
+	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
 }
 
 handelChinaIPv4List() {
+	echo -e "\n" >>ipip
+	mv ipip china_ipv4_list
 	cp china_ipv4_list $ROOT_PATH
 }
 
