@@ -15,26 +15,10 @@ downloadOriginIPList() {
 	cd $TEMP_FILE_PATH
 
 	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest
-	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
+	wget -O china_ipv4_list https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
 }
 
 handelChinaIPv4List() {
-	# APNIC
-	cat apnic | grep ipv4 | grep CN | awk -F\| '{printf("%s/%d\n", $4, 32-log($5)/log(2))}' >>apnic_1
-	echo -e "\n" >>apnic_1
-
-	# IPIP
-	echo -e "\n" >>ipip
-
-	# 合并 & 去重
-	cat apnic_1 ipip | sort | uniq >apnic_and_ipip_1
-
-	# 去空行
-	grep -v '^$' apnic_and_ipip_1 >apnic_and_ipip_2
-
-	# 排序
-	sort -t "." -k1n,1 -k2n,2 -k3n,3 -k4n,4 apnic_and_ipip_2 >china_ipv4_list
-
 	cp china_ipv4_list $ROOT_PATH
 }
 
