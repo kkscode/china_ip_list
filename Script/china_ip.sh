@@ -41,12 +41,12 @@ handelPcapDNSProxyRules() {
 	echo -e "[Local Routing]\n## China mainland routing blocks\n## Sources: https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest" >Pcap_DNSProxy_Routing.txt
 	echo -n "## Last update: " >>Pcap_DNSProxy_Routing.txt
 	echo $CurrentDate >>Pcap_DNSProxy_Routing.txt
-	echo "\n" >>Pcap_DNSProxy_Routing.txt
+	echo -e "" >>Pcap_DNSProxy_Routing.txt
 
 	# IPv4
 	echo "## IPv4" >>Pcap_DNSProxy_Routing.txt
 	cat china_ipv4_list >>Pcap_DNSProxy_Routing.txt
-	echo -e "\n" >>Pcap_DNSProxy_Routing.txt
+	echo -e "" >>Pcap_DNSProxy_Routing.txt
 
 	# IPv6
 	echo "## IPv6" >>Pcap_DNSProxy_Routing.txt
