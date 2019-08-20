@@ -122,6 +122,7 @@ commit() {
 }
 
 downloadOriginIPList
+wait
 handelChinaIPv4List
 handelChinaIPv6List
 handelChinaIPv4IPv6List
