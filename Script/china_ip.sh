@@ -14,8 +14,8 @@ downloadOriginIPList() {
 	mkdir $TEMP_FILE_PATH
 	cd $TEMP_FILE_PATH
 
-	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest &
-	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt &
+	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest
+	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
 }
 
 handelChinaIPv4List() {
@@ -122,18 +122,12 @@ commit() {
 }
 
 downloadOriginIPList
-
-while ((1)); do
-	if test -s $TEMP_FILE_PATH'apnic' && test -s $TEMP_FILE_PATH'ipip'; then
-		handelChinaIPv4List
-		handelChinaIPv6List
-		handelChinaIPv4IPv6List
-		handelPcapDNSProxyRules
-		handelSurgeRules
-		handelACLRules
-		handelSSRRules
-		cleanTempFile
-		commit
-		break
-	fi
-done
+handelChinaIPv4List
+handelChinaIPv6List
+handelChinaIPv4IPv6List
+handelPcapDNSProxyRules
+handelSurgeRules
+handelACLRules
+handelSSRRules
+cleanTempFile
+commit
