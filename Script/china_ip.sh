@@ -121,7 +121,7 @@ commit() {
 	git push origin master
 }
 
-# downloadOriginIPList
+downloadOriginIPList
 
 while ((1)); do
 	if test -s $TEMP_FILE_PATH'apnic' && test -s $TEMP_FILE_PATH'ipip'; then
