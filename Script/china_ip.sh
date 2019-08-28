@@ -10,14 +10,6 @@ SCRIPT_PATH="/root/china_ip_list/Script"
 
 CurrentDate=$(date +%Y-%m-%d)
 
-downloadOriginIPList() {
-	mkdir $TEMP_FILE_PATH
-	cd $TEMP_FILE_PATH
-
-	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest
-	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
-}
-
 handelChinaIPv4List() {
 	echo -e "" >>ipip
 	mv ipip china_ipv4_list
@@ -121,13 +113,22 @@ commit() {
 	git push origin master
 }
 
+downloadOriginIPList() {
+	mkdir $TEMP_FILE_PATH
+	cd $TEMP_FILE_PATH
+
+	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest
+	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt
+
+	handelChinaIPv4List
+	handelChinaIPv6List
+	handelChinaIPv4IPv6List
+	handelPcapDNSProxyRules
+	handelSurgeRules
+	handelACLRules
+	handelSSRRules
+	cleanTempFile
+	commit
+}
+
 downloadOriginIPList
-handelChinaIPv4List
-handelChinaIPv6List
-handelChinaIPv4IPv6List
-handelPcapDNSProxyRules
-handelSurgeRules
-handelACLRules
-handelSSRRules
-cleanTempFile
-commit
