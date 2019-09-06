@@ -18,18 +18,33 @@ downloadOriginIPList() {
 
 	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt >$TEMP_FILE_PATH'ipip.log' 2>&1 &
 
+	while ((1)); do
+		apnicIsDownDone=$(cat apnic.log | grep "saved" | wc -l)
+		ipipIsDownDone=$(cat ipip.log | grep "saved" | wc -l)
+		if [ $apnicIsDownDone == 1 ] && [ $ipipIsDownDone == 1 ]; then
+			echo -e "ip files download done."
+			break
+		fi
+		sleep 1
+	done
+
+	handelChinaIPv4List
 }
 
 handelChinaIPv4List() {
 	echo -e "" >>ipip
 	mv ipip china_ipv4_list
 	cp china_ipv4_list $ROOT_PATH
+
+	handelChinaIPv6List
 }
 
 handelChinaIPv6List() {
 	cat apnic | grep ipv6 | grep CN | awk -F\| '{printf("%s/%d\n", $4, $5)}' >china_ipv6_list
 
 	cp china_ipv6_list $ROOT_PATH
+
+	handelChinaIPv4IPv6List
 }
 
 handelChinaIPv4IPv6List() {
@@ -37,6 +52,8 @@ handelChinaIPv4IPv6List() {
 	cat china_ipv6_list >>china_ipv4_ipv6_list
 
 	cp china_ipv4_ipv6_list $ROOT_PATH
+
+	handelPcapDNSProxyRules
 }
 
 handelPcapDNSProxyRules() {
@@ -57,6 +74,8 @@ handelPcapDNSProxyRules() {
 	mv Pcap_DNSProxy_Routing.txt Routing.txt
 
 	mv Routing.txt $PCAP_DNSPROXY_PATH
+
+	handelSurgeRules
 }
 
 handelSurgeRules() {
@@ -84,6 +103,8 @@ handelSurgeRules() {
 	sed 's/^/IP-CIDR6,/g' china_ipv6_list >surge_ipv6_rules_set.list
 
 	mv Rules.conf surge_ipv4_rules_set.list surge_ipv6_rules_set.list $SURGE_PATH
+
+	handelACLRules
 }
 
 handelACLRules() {
@@ -105,16 +126,22 @@ handelACLRules() {
 	mv acl_rules.txt china_ip_list.acl
 
 	mv china_ip_list.acl $ACL_PATH
+
+	handelSSRRules
 }
 
 handelSSRRules() {
 	cd $SCRIPT_PATH
 	python ssr_chn_ip.py
+
+	cleanTempFile
 }
 
 cleanTempFile() {
 	cd $ROOT_PATH
 	rm -rf $TEMP_FILE_PATH
+
+	commit
 }
 
 commit() {
@@ -124,23 +151,3 @@ commit() {
 }
 
 downloadOriginIPList
-
-while ((1)); do
-	apnicIsDownDone=$(cat apnic.log | grep "saved" | wc -l)
-	ipipIsDownDone=$(cat ipip.log | grep "saved" | wc -l)
-	if [ $apnicIsDownDone == 1 ] && [ $ipipIsDownDone == 1 ]; then
-		echo -e "ip files download done."
-		break
-	fi
-	sleep 1
-done
-
-handelChinaIPv4List
-handelChinaIPv6List
-handelChinaIPv4IPv6List
-handelPcapDNSProxyRules
-handelSurgeRules
-handelACLRules
-handelSSRRules
-cleanTempFile
-commit
