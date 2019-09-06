@@ -14,9 +14,9 @@ downloadOriginIPList() {
 	mkdir $TEMP_FILE_PATH
 	cd $TEMP_FILE_PATH
 
-	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest >$TEMP_FILE_PATH'apnic.log' 2>&1 &
+	wget -O apnic https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest >$TEMP_FILE_PATH'apnic.log' 2>&1
 
-	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt >$TEMP_FILE_PATH'ipip.log' 2>&1 &
+	wget -O ipip https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt >$TEMP_FILE_PATH'ipip.log' 2>&1
 
 	while ((1)); do
 		apnicIsDownDone=$(cat apnic.log | grep "saved" | wc -l)
@@ -27,6 +27,8 @@ downloadOriginIPList() {
 		fi
 		sleep 1
 	done
+
+	echo -e "downloadOriginIPList done."
 
 	handelChinaIPv4List
 }
