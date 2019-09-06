@@ -30,6 +30,7 @@ downloadOriginIPList() {
 		sleep 1
 	done
 
+	sleep 1
 	handelChinaIPv4List
 }
 
@@ -40,6 +41,7 @@ handelChinaIPv4List() {
 	mv ipip china_ipv4_list
 	cp china_ipv4_list $ROOT_PATH
 
+	sleep 1
 	handelChinaIPv6List
 }
 
@@ -50,6 +52,7 @@ handelChinaIPv6List() {
 
 	cp china_ipv6_list $ROOT_PATH
 
+	sleep 1
 	handelChinaIPv4IPv6List
 }
 
@@ -61,6 +64,7 @@ handelChinaIPv4IPv6List() {
 
 	cp china_ipv4_ipv6_list $ROOT_PATH
 
+	sleep 1
 	handelPcapDNSProxyRules
 }
 
@@ -85,6 +89,7 @@ handelPcapDNSProxyRules() {
 
 	mv Routing.txt $PCAP_DNSPROXY_PATH
 
+	sleep 1
 	handelSurgeRules
 }
 
@@ -116,6 +121,7 @@ handelSurgeRules() {
 
 	mv Rules.conf surge_ipv4_rules_set.list surge_ipv6_rules_set.list $SURGE_PATH
 
+	sleep 1
 	handelACLRules
 }
 
@@ -141,6 +147,7 @@ handelACLRules() {
 
 	mv china_ip_list.acl $ACL_PATH
 
+	sleep 1
 	handelSSRRules
 }
 
@@ -150,6 +157,7 @@ handelSSRRules() {
 	cd $SCRIPT_PATH
 	python ssr_chn_ip.py
 
+	sleep 1
 	cleanTempFile
 }
 
@@ -159,6 +167,7 @@ cleanTempFile() {
 	cd $ROOT_PATH
 	rm -rf $TEMP_FILE_PATH
 
+	sleep 1
 	commit
 }
 
