@@ -11,7 +11,7 @@ SCRIPT_PATH="/root/china_ip_list/Script"
 CurrentDate=$(date +%Y-%m-%d)
 
 downloadOriginIPList() {
-	echo "start downloadOriginIPList."
+	echo "exec downloadOriginIPList."
 
 	mkdir $TEMP_FILE_PATH
 	cd $TEMP_FILE_PATH
@@ -34,7 +34,7 @@ downloadOriginIPList() {
 }
 
 handelChinaIPv4List() {
-	echo "start handelChinaIPv4List."
+	echo "exec handelChinaIPv4List."
 
 	echo -e "" >>ipip
 	mv ipip china_ipv4_list
@@ -44,7 +44,7 @@ handelChinaIPv4List() {
 }
 
 handelChinaIPv6List() {
-	echo "start handelChinaIPv6List."
+	echo "exec handelChinaIPv6List."
 
 	cat apnic | grep ipv6 | grep CN | awk -F\| '{printf("%s/%d\n", $4, $5)}' >china_ipv6_list
 
@@ -54,7 +54,7 @@ handelChinaIPv6List() {
 }
 
 handelChinaIPv4IPv6List() {
-	echo "start handelChinaIPv4IPv6List."
+	echo "exec handelChinaIPv4IPv6List."
 
 	cat china_ipv4_list >china_ipv4_ipv6_list
 	cat china_ipv6_list >>china_ipv4_ipv6_list
@@ -65,7 +65,7 @@ handelChinaIPv4IPv6List() {
 }
 
 handelPcapDNSProxyRules() {
-	echo "start handelPcapDNSProxyRules."
+	echo "exec handelPcapDNSProxyRules."
 
 	echo -e "[Local Routing]\n## China mainland routing blocks\n## Sources: https://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest" >Pcap_DNSProxy_Routing.txt
 	echo -n "## Last update: " >>Pcap_DNSProxy_Routing.txt
@@ -89,7 +89,7 @@ handelPcapDNSProxyRules() {
 }
 
 handelSurgeRules() {
-	echo "start handelSurgeRules."
+	echo "exec handelSurgeRules."
 
 	echo -e "// China IP" >surge_rules.txt
 	echo -n "// Last update: " >>surge_rules.txt
@@ -120,7 +120,7 @@ handelSurgeRules() {
 }
 
 handelACLRules() {
-	echo "start handelACLRules."
+	echo "exec handelACLRules."
 
 	echo -n "# Last update: " >acl_rules.txt
 	echo $CurrentDate >>acl_rules.txt
@@ -145,7 +145,7 @@ handelACLRules() {
 }
 
 handelSSRRules() {
-	echo "start handelSSRRules."
+	echo "exec handelSSRRules."
 
 	cd $SCRIPT_PATH
 	python ssr_chn_ip.py
@@ -154,7 +154,7 @@ handelSSRRules() {
 }
 
 cleanTempFile() {
-	echo "start cleanTempFile."
+	echo "exec cleanTempFile."
 
 	cd $ROOT_PATH
 	rm -rf $TEMP_FILE_PATH
@@ -163,7 +163,7 @@ cleanTempFile() {
 }
 
 commit() {
-	git add --all .
+	git add --all
 	git commit -m "update"
 	git push origin master
 }
