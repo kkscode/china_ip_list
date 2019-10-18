@@ -1,12 +1,12 @@
 #!/bin/bash
 
-ROOT_PATH="/root/china_ip_list/"
-TEMP_FILE_PATH="/root/china_ip_list/temp/"
-SURGE_PATH="/root/china_ip_list/Surge/"
-SSR_PATH="/root/china_ip_list/SSR/"
-ACL_PATH="/root/china_ip_list/ACL/"
-PCAP_DNSPROXY_PATH="/root/china_ip_list/Pcap_DNSProxy/"
-SCRIPT_PATH="/root/china_ip_list/Script"
+ROOT_PATH="/home/china_ip_list/"
+TEMP_FILE_PATH="/home/china_ip_list/temp/"
+SURGE_PATH="/home/china_ip_list/Surge/"
+SSR_PATH="/home/china_ip_list/SSR/"
+ACL_PATH="/home/china_ip_list/ACL/"
+PCAP_DNSPROXY_PATH="/home/china_ip_list/Pcap_DNSProxy/"
+SCRIPT_PATH="/home/china_ip_list/Script"
 
 CurrentDate=$(date +%Y-%m-%d)
 
