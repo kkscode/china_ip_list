@@ -9,7 +9,11 @@ secret: ""
 Proxy:
 Proxy Group:
   - name: PROXY
+    type: select
+    proxies:
   - name: CH
+    type: select
+    proxies:
 Rule:
   - DOMAIN-SUFFIX,music.126.net,CH
   - DOMAIN-SUFFIX,music.163.com,CH
