@@ -1,0 +1,21 @@
+port: 8888
+socks-port: 8889
+redir-port: 0
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 0.0.0.0:6170
+secret: ""
+Proxy:
+Proxy Group:
+  - name: PROXY
+  - name: CH
+Rule:
+  - DOMAIN-SUFFIX,music.126.net,CH
+  - DOMAIN-SUFFIX,music.163.com,CH
+  - DOMAIN-SUFFIX,toutiao.com,CH
+  - DOMAIN-SUFFIX,pstatp.com,CH
+  - DOMAIN-SUFFIX,mongodb.com,PROXY
+  - DOMAIN-SUFFIX,aws.found.io,PROXY
+  # - GEOIP,CN,DIRECT
+  - MATCH,DIRECT
